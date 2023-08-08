@@ -1,0 +1,17 @@
+# Node.js / GraphQL
+node_modules/
+dist/
+*.log
+.env
+.env.local
+
+# Editor/IDE
+.vscode/
+.idea/
+*.code-workspace
+
+# macOS
+.DS_Store
+
+# npm
+*.npm-debug.log*
