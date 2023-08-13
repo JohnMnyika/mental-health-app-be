@@ -1,15 +1,38 @@
+const { generateToken, hashPassword, comparePasswords } = require('./auth');
+
 const resolvers = {
-    Query: {
-      getUser: (parent, { id }, context, info) => {
-        // Implement logic to fetch user data by ID
-      },
+  Query: {
+    // Define your queries
+  },
+  Mutation: {
+    registerUser: async (_, { email, password, confirmPassword }, { db }) => {
+      // Check if user with email already exists
+
+      // Hash the password
+      const hashedPassword = await hashPassword(password);
+
+      // Create the user in the database
+
+      // Generate JWT token
+      const user = { id: createdUserId, email };
+      const token = generateToken(user);
+
+      return { user, token };
     },
-    Mutation: {
-      createUser: (parent, { name, email }, context, info) => {
-        // Implement logic to create a new user
-      },
+    loginUser: async (_, { email, password }, { db }) => {
+      // Find user by email
+
+      // Compare passwords
+      const passwordsMatch = await comparePasswords(password, user.password);
+
+      if (!passwordsMatch) {
+        throw new Error('Invalid credentials');
+      }
+
+      // Generate JWT token
+      const token = generateToken(user);
+
+      return { user, token };
     },
-  };
-  
-  module.exports = resolvers;
-  
+  },
+};
