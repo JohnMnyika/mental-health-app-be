@@ -7,7 +7,7 @@ module.exports = ({ req }) => {
   let userId = null;
   try {
     if (token) {
-      const decodedToken = jwt.verify(token, 'your-secret-key');
+      const decodedToken = jwt.verify(token, 'dev-np45xxlfwu4dacjv');
       userId = decodedToken.userId;
     }
   } catch (error) {

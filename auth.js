@@ -3,7 +3,7 @@ const bcrypt = require('bcrypt');
 
 const generateToken = (user) => {
   const payload = { id: user.id, email: user.email };
-  const secretKey = 'your-secret-key'; // Replace with a secure secret key
+  const secretKey = 'dev-np45xxlfwu4dacjv'; // Replace with a secure secret key
   const options = { expiresIn: '1d' }; // Token expires in 1 day
 
   return jwt.sign(payload, secretKey, options);
